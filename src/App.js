@@ -5,6 +5,10 @@ import Web3 from 'web3';
 import Navbar from './Home/Script/Navbar.js';
 import Landing from './Home/Script/Landing';
 
+
+import Browse from './Marketplace/Script/Browse.js';
+import Create from './Marketplace/Script/Create.js';
+
 class App extends Component {
 
     componentDidMount = async () => {
