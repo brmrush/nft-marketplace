@@ -81,6 +81,9 @@ contract RushMarketplace is ReentrancyGuard {
     function getBalance() public view returns(uint) {
         return address(this).balance;
     }
+    function internalGetBalance() internal view returns(uint) {
+        return address(this).balance;
+    }
     
 
 }
