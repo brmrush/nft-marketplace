@@ -16,6 +16,14 @@ class Landing extends Component {
     }
 
 
+    handleCreateClick = () => {
+        this.props.setCurrentPage("create")
+    } 
+    handleBrowseClick = () => {
+        this.props.setCurrentPage("browse")
+    }
+
+
     render() {
         
         return (
@@ -27,8 +35,8 @@ class Landing extends Component {
                         <h1 className='fw-bold text-light'>Discover, collect, and sell extraordinary NFTs</h1>
                         <h4 className='text-light'>OpenSea is the world's first and largest NFT marketplace</h4>
                         <div className='d-flex align-items-center justify-content-evenly'>
-                            <button className='land-button m-2 p-1'>Browse</button>
-                            <button className='land-button m-2 p-1'>Create</button>
+                            <button className='land-button m-2 p-1' onClick={this.handleBrowseClick}>Browse</button>
+                            <button className='land-button m-2 p-1' onClick={this.handleCreateClick}>Create</button>
                         </div>
                     </div>
                     {/* Image*/}

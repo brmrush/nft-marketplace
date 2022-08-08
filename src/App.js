@@ -150,10 +150,15 @@ class App extends Component {
         <div>
             <Navbar account = {this.state.account}
                     setCurrentPage = {this.setCurrentPage}
+                    connectWallet = {this.connectWallet}
+                    
             />
             {
                 this.state.currentPage === "landing" &&
-                    <Landing account = {this.state.account}/>
+                    <Landing account = {this.state.account}
+                             setCurrentPage = {this.setCurrentPage}
+
+                    />
             }
             {
                 this.state.currentPage === "create" &&

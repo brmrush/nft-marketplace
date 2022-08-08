@@ -45,7 +45,9 @@ class Navbar extends Component {
                             <p className='m-1 fw-bold raleway text-light'>{this.props.account.slice(0,8)}... </p>
                         </div>
                         :
-                        <></>
+                        <div className='nav-button m-1' onClick={this.props.connectWallet}>
+                            CONNECT WALLET
+                        </div>
                         }
                 </nav>
             </div>

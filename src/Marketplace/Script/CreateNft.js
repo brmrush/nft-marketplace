@@ -143,7 +143,7 @@ class Landing extends Component {
                                     </div>
                                     :
                                     <div>
-                                        <a href="#" className="btn btn-primary" onClick={() => this.createNFT( )}>Create Sale</a>
+                                        <a href="#" className="btn btn-primary" onClick={() => this.createNFT( )}>Create</a>
                                     </div>
                                 
                                 }
