@@ -50,8 +50,7 @@ class Landing extends Component {
 
     purchaseItem = async ( marketItem ) => {
         if (!this.props.nft || !this.props.marketplace) return
-        const priceInWei = this.props.web3.utils.toWei(marketItem.price , 'ether')
-        const tx = await this.props.marketplace.methods.purchaseItem(marketItem.marketItemID).send( { from : this.props.account , value : priceInWei} ).then(function(receipt) {
+        const tx = await this.props.marketplace.methods.purchaseItem(marketItem.marketItemID).send( { from : this.props.account , value : marketItem.price} ).then(function(receipt) {
         console.log("Transaction is mined with txHash : ")
         window.location.reload()
         console.log(receipt.transactionHash)}).catch((e)=> {
@@ -61,11 +60,6 @@ class Landing extends Component {
 
     }
 
-    getBalance = async (  ) => {
-        if (!this.props.nft || !this.props.marketplace) return
-        const tx = await this.props.marketplace.methods.getBalance().call()
-        console.log(tx)
-    }
 
 
 
@@ -84,7 +78,7 @@ class Landing extends Component {
                                 <p className="card-title h3">{this.state.tokenList[count].name}</p>
                                 <p className="card-title h6">Token Id : {item.tokenID}</p>
                                 <p className="card-text"> {this.state.tokenList[count].description} </p>
-                                <p className="card-title h6">Price : {item.price} ETH</p>
+                                <p className="card-title h6">Price : {this.props.web3.utils.fromWei(item.price)} ETH</p>
                                 <button className="btn btn-primary" onClick={() => this.purchaseItem( item )}>Purchase</button>
                                 <p className="card-text">Seller : {item.seller}</p>
                             </div>
@@ -93,7 +87,6 @@ class Landing extends Component {
                 ))}
 
                 </div>
-                <button className='btn-danger' onClick={this.getBalance}>get balance</button>
             </div>
         );
     }

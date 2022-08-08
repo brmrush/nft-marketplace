@@ -53,7 +53,7 @@ contract RushMarketplace is ReentrancyGuard {
 
     function purchaseItem(uint _itemId) public payable nonReentrant {
         require(msg.sender != address(0), "Invalid address.");
-        uint _itemPrice = itemIdToItem[_itemId].price * (10 ** 18);
+        uint _itemPrice = itemIdToItem[_itemId].price;
 
         require(msg.value >= _itemPrice, "Unsufficiend ether amount.");
 

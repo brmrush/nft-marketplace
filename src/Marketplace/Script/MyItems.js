@@ -1,6 +1,7 @@
 import '../Style/MyItems.css';
 import React, {Component , useState} from 'react';
 import axios from 'axios';
+import BigNumber from 'bignumber.js';
 
 class Landing extends Component {
 
@@ -67,7 +68,16 @@ class Landing extends Component {
 
         })
 
-        const createSaleTx = await this.props.marketplace.methods.createSale(_tokenId, this.state.price).send( { from : this.props.account} ).then(function(receipt) {
+
+
+
+
+        var price = this.props.web3.utils.toWei(this.state.price);
+
+
+        
+
+        const createSaleTx = await this.props.marketplace.methods.createSale(_tokenId, price).send( { from : this.props.account} ).then(function(receipt) {
 
             console.log("Transaction is mined with txHash : ")
             console.log(receipt.transactionHash)}).catch((e)=> {

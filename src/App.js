@@ -32,10 +32,10 @@ class App extends Component {
     connectWallet = async () => {
         await this.loadWeb3()
         const networkId = await this.state.web3.eth.net.getId()
-        if (networkId !== 3) {
-            alert("Please switch to Ropsten Test Network.")
-            return
-        }
+        // if (networkId !== 3) {
+        //     alert("Please switch to Ropsten Test Network.")
+        //     return
+        // }
         const accounts = await this.state.web3.eth.getAccounts()
         this.setState({ account: accounts[0] })
         window.localStorage.setItem("account", accounts[0])
